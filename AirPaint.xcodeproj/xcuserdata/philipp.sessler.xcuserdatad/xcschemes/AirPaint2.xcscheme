@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C34B13ED158CC22E0020D111"
                BuildableName = "AirPaint2.app"
-               BlueprintName = "AirPaint2"
-               ReferencedContainer = "container:AirPaint2.xcodeproj">
+               BlueprintName = "AirPaint"
+               ReferencedContainer = "container:AirPaint.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C34B13ED158CC22E0020D111"
             BuildableName = "AirPaint2.app"
-            BlueprintName = "AirPaint2"
-            ReferencedContainer = "container:AirPaint2.xcodeproj">
+            BlueprintName = "AirPaint"
+            ReferencedContainer = "container:AirPaint.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C34B13ED158CC22E0020D111"
             BuildableName = "AirPaint2.app"
-            BlueprintName = "AirPaint2"
-            ReferencedContainer = "container:AirPaint2.xcodeproj">
+            BlueprintName = "AirPaint"
+            ReferencedContainer = "container:AirPaint.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C34B13ED158CC22E0020D111"
             BuildableName = "AirPaint2.app"
-            BlueprintName = "AirPaint2"
-            ReferencedContainer = "container:AirPaint2.xcodeproj">
+            BlueprintName = "AirPaint"
+            ReferencedContainer = "container:AirPaint.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

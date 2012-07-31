@@ -88,15 +88,15 @@
 /* Begin PBXFileReference section */
 		C32A0608159DD487004AD442 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C32A060E159DE55A004AD442 /* particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = particle.png; path = AirPaint2/images/particle.png; sourceTree = "<group>"; };
-		C34B13EE158CC22E0020D111 /* AirPaint2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirPaint2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C34B13EE158CC22E0020D111 /* AirPaint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirPaint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C34B13F2158CC22E0020D111 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C34B13F4158CC22E0020D111 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C34B13F6158CC22E0020D111 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C34B13F8158CC22E0020D111 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		C34B13FC158CC22E0020D111 /* AirPaint2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirPaint2-Info.plist"; sourceTree = "<group>"; };
+		C34B13FC158CC22E0020D111 /* AirPaint-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirPaint-Info.plist"; sourceTree = "<group>"; };
 		C34B13FE158CC22E0020D111 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C34B1400158CC22E0020D111 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C34B1402158CC22E0020D111 /* AirPaint2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirPaint2-Prefix.pch"; sourceTree = "<group>"; };
+		C34B1402158CC22E0020D111 /* AirPaint-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirPaint-Prefix.pch"; sourceTree = "<group>"; };
 		C34B1403158CC22E0020D111 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C34B1404158CC22E0020D111 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C34B1407158CC22E0020D111 /* AirPaint2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AirPaint2.xcdatamodel; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 		C34B13EF158CC22E0020D111 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C34B13EE158CC22E0020D111 /* AirPaint2.app */,
+				C34B13EE158CC22E0020D111 /* AirPaint.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -295,10 +295,10 @@
 			isa = PBXGroup;
 			children = (
 				C34B1406158CC22E0020D111 /* AirPaint2.xcdatamodeld */,
-				C34B13FC158CC22E0020D111 /* AirPaint2-Info.plist */,
+				C34B13FC158CC22E0020D111 /* AirPaint-Info.plist */,
 				C34B13FD158CC22E0020D111 /* InfoPlist.strings */,
 				C34B1400158CC22E0020D111 /* main.m */,
-				C34B1402158CC22E0020D111 /* AirPaint2-Prefix.pch */,
+				C34B1402158CC22E0020D111 /* AirPaint-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -498,9 +498,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C34B13ED158CC22E0020D111 /* AirPaint2 */ = {
+		C34B13ED158CC22E0020D111 /* AirPaint */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C34B140B158CC22E0020D111 /* Build configuration list for PBXNativeTarget "AirPaint2" */;
+			buildConfigurationList = C34B140B158CC22E0020D111 /* Build configuration list for PBXNativeTarget "AirPaint" */;
 			buildPhases = (
 				C34B13EA158CC22E0020D111 /* Sources */,
 				C34B13EB158CC22E0020D111 /* Frameworks */,
@@ -510,9 +510,9 @@
 			);
 			dependencies = (
 			);
-			name = AirPaint2;
+			name = AirPaint;
 			productName = AirPaint2;
-			productReference = C34B13EE158CC22E0020D111 /* AirPaint2.app */;
+			productReference = C34B13EE158CC22E0020D111 /* AirPaint.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -523,7 +523,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = C34B13E8158CC22D0020D111 /* Build configuration list for PBXProject "AirPaint2" */;
+			buildConfigurationList = C34B13E8158CC22D0020D111 /* Build configuration list for PBXProject "AirPaint" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -535,7 +535,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C34B13ED158CC22E0020D111 /* AirPaint2 */,
+				C34B13ED158CC22E0020D111 /* AirPaint */,
 			);
 		};
 /* End PBXProject section */
@@ -689,9 +689,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AirPaint2/AirPaint2-Prefix.pch";
-				INFOPLIST_FILE = "AirPaint2/AirPaint2-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "AirPaint2/AirPaint-Prefix.pch";
+				INFOPLIST_FILE = "AirPaint2/AirPaint-Info.plist";
+				PRODUCT_NAME = AirPaint;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
@@ -704,9 +704,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AirPaint2/AirPaint2-Prefix.pch";
-				INFOPLIST_FILE = "AirPaint2/AirPaint2-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "AirPaint2/AirPaint-Prefix.pch";
+				INFOPLIST_FILE = "AirPaint2/AirPaint-Info.plist";
+				PRODUCT_NAME = AirPaint;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
@@ -716,7 +716,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C34B13E8158CC22D0020D111 /* Build configuration list for PBXProject "AirPaint2" */ = {
+		C34B13E8158CC22D0020D111 /* Build configuration list for PBXProject "AirPaint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C34B1409158CC22E0020D111 /* Debug */,
@@ -725,7 +725,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C34B140B158CC22E0020D111 /* Build configuration list for PBXNativeTarget "AirPaint2" */ = {
+		C34B140B158CC22E0020D111 /* Build configuration list for PBXNativeTarget "AirPaint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C34B140C158CC22E0020D111 /* Debug */,

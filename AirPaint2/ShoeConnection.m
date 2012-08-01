@@ -57,6 +57,7 @@
 	NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	if (msg) {
         
+        NSLog(@"%@", msg);
         
         if ([outstandingAck count] > 0) {
         

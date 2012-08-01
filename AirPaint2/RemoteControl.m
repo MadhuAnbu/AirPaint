@@ -48,13 +48,15 @@
            fromHost:(NSString *)host
                port:(UInt16)port
 {
-    
+        
 	NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	if (msg) {
         
+
+        
         NSArray *chunks = [msg componentsSeparatedByString:@";"];
         NSString *command = [chunks objectAtIndex:0];
-        
+
         if([command isEqualToString:@"snapshot"]) {
             NSString *snapshotID = [chunks objectAtIndex:1];
             [self takeSnapshotWithID:snapshotID];
@@ -76,9 +78,8 @@
             [appDelegate.canvasViewController.brushColorViewController setCurrentColor:color];
             
         } else if([command isEqualToString:@"draw"]) {
-            
-            
-            [self processDrawingCommands:[msg substringFromIndex:5]];
+                    
+            [self processDrawingCommands:msg];
             
         } else if([command isEqualToString:@"eraseCanvas"] ) {
             [appDelegate.canvasViewController.canvas eraseToIndex:-1 finished:YES];
@@ -95,7 +96,7 @@
 
 - (void) processDrawingCommands:(NSString *)msg
 {
-    msg = [msg substringFromIndex:5];
+    msg = [msg substringFromIndex:6];
     NSArray *lines = [msg componentsSeparatedByString:@"\n"];
 
     for(NSString *line in lines) {
@@ -111,7 +112,7 @@
     
     NSArray *chunks = [msg componentsSeparatedByString:@";"];
     NSString *gesture = [chunks objectAtIndex:0];
-    
+        
     if ([gesture isEqualToString:@"pinch_start"] || [gesture isEqualToString:@"pinch"]) {
         
         
@@ -125,6 +126,8 @@
             
             firstPinchPoint = CGPointMake(x_coord, y_coord);
             useFirstPinchPoint = YES;
+
+            printf("draw; (%f,%f)\n", lastPoint.x, lastPoint.y);
             
             // lastPoint is last cursor point; draw first point
             [appDelegate.canvasViewController.canvas addAndRenderLineWithStartPoint:lastPoint endPoint:lastPoint color:remoteDrawColor lineWidth:[appDelegate.canvasViewController.brushSizeViewController getBrushSize]];
@@ -149,6 +152,8 @@
             CGPoint newPoint = CGPointMake(lastPoint.x + delta.x, 
                                            lastPoint.y +delta.y);
             
+            printf("draw; (%f,%f)\n", newPoint.x, newPoint.y);
+
             [appDelegate.canvasViewController.canvas addAndRenderLineWithStartPoint:lastPoint endPoint:newPoint color:remoteDrawColor lineWidth:[appDelegate.canvasViewController.brushSizeViewController getBrushSize]];
             
             lastPoint = newPoint;

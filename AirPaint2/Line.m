@@ -29,13 +29,13 @@
     self.width = size;
     
     self.count = MAX(ceilf(sqrtf((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)) / kBrushPixelStep), 1);
-    /*
+    
     if(self.count > 1) {
-       // printf("(%f,%f)-(%f,%f), count :%i\n", start.x, start.y, end.x, end.y, self.count);
-      //  printf ("#count: %i", self.count);
+       printf("(%f,%f)-(%f,%f), count :%i\n", start.x, start.y, end.x, end.y, self.count);
+        printf ("#count: %i", self.count);
 
     }
-*/
+
       return self;
 }
 

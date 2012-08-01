@@ -126,8 +126,6 @@
             
             firstPinchPoint = CGPointMake(x_coord, y_coord);
             useFirstPinchPoint = YES;
-
-            printf("draw; (%f,%f)\n", lastPoint.x, lastPoint.y);
             
             // lastPoint is last cursor point; draw first point
             [appDelegate.canvasViewController.canvas addAndRenderLineWithStartPoint:lastPoint endPoint:lastPoint color:remoteDrawColor lineWidth:[appDelegate.canvasViewController.brushSizeViewController getBrushSize]];
@@ -152,8 +150,6 @@
             CGPoint newPoint = CGPointMake(lastPoint.x + delta.x, 
                                            lastPoint.y +delta.y);
             
-            printf("draw; (%f,%f)\n", newPoint.x, newPoint.y);
-
             [appDelegate.canvasViewController.canvas addAndRenderLineWithStartPoint:lastPoint endPoint:newPoint color:remoteDrawColor lineWidth:[appDelegate.canvasViewController.brushSizeViewController getBrushSize]];
             
             lastPoint = newPoint;

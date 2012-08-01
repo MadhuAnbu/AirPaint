@@ -315,7 +315,7 @@
         sumSubDraw = 0;
         
         // setting up OpenGL
-        [self setupLayer];        
+        [self setupLayer];       
         [self setupContext];    
         [self setupDepthBuffer];
         [self setupRenderBuffer];        
@@ -382,22 +382,26 @@
     glDrawArrays(GL_POINTS,  0,  [vertexArray count]);
     */
    
+    /*
     // does work, but get's slow
-   
-    
-    glBufferSubData(GL_ARRAY_BUFFER, 
+    // only works in the simulator?!?!
+    glBufferSubData(GL_ARRAY_BUFFER,
                     [line getFirstPositionInVertexArray] * sizeof(Vertex), 
                     [line count]*sizeof(Vertex),
                     [vertexArray getDataFromIndex:[line getFirstPositionInVertexArray]] );
     
     
     glDrawArrays(GL_POINTS, [line getFirstPositionInVertexArray],  [line getLastPositionInVertexArray]+1-[line getFirstPositionInVertexArray]);
- 
-    sumSubDraw += [line getLastPositionInVertexArray]+1-[line getFirstPositionInVertexArray];
+     */
     
-    printf("sum-sub-draw: %i", sumSubDraw);
+    glBufferSubData(GL_ARRAY_BUFFER,
+                    0,
+                    [vertexArray count]*sizeof(Vertex),
+                    [vertexArray myData] );
     
-    printf("vertex count: %i", [vertexArray count]);
+    
+    glDrawArrays(GL_POINTS, [line getFirstPositionInVertexArray],  [line getLastPositionInVertexArray]+1-[line getFirstPositionInVertexArray]);
+    
     
     [context presentRenderbuffer:GL_RENDERBUFFER];
     

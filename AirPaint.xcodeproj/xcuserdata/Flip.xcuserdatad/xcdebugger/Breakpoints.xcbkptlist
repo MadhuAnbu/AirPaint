@@ -63,11 +63,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "AirPaint2/Canvas.m"
-         timestampString = "365507241.127981"
+         timestampString = "365527101.350671"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "989"
-         endingLineNumber = "989">
+         startingLineNumber = "990"
+         endingLineNumber = "990">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -75,11 +75,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "AirPaint2/Canvas.m"
-         timestampString = "365507241.127981"
+         timestampString = "365527101.350671"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "627"
-         endingLineNumber = "627">
+         startingLineNumber = "628"
+         endingLineNumber = "628">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"

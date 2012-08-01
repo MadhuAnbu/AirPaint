@@ -330,7 +330,7 @@
 
 - (void) addAndRenderLineWithStartPoint:(CGPoint) start endPoint:(CGPoint) end color:(Color) col lineWidth:(float) size {
         
-   // [self clear];
+    [self clear];
     
     // add line
     Line *line = [[Line alloc] initWithStart:start endPoint:end color:col lineWidth:size];
@@ -338,12 +338,12 @@
     [self.lines addObject:line];
 
     // draw line
-  /*
+  
     
-    glBufferData(GL_ARRAY_BUFFER,  [vertexArray getSize], [vertexArray data], GL_STREAM_DRAW);
+    glBufferData(GL_ARRAY_BUFFER,  [vertexArray getSize], [vertexArray myData], GL_STREAM_DRAW);
     glDrawArrays(GL_POINTS, 0, [vertexArray count]);
      
-  */
+  
     /*
     
     glBufferData(GL_ARRAY_BUFFER, [line count], 
@@ -374,13 +374,14 @@
     
     
     // does kind of work but gets slow
+   /*
     glBufferSubData(GL_ARRAY_BUFFER, 
                     [line getFirstPositionInVertexArray] * sizeof(Vertex), 
                     [line count]*sizeof(Vertex),
                     [vertexArray getDataFromIndex:[line getFirstPositionInVertexArray]] );
     
     glDrawArrays(GL_POINTS,  0,  [vertexArray count]);
-    
+    */
    
     /*
     // does work, but get's slow

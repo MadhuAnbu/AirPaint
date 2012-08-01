@@ -70,6 +70,7 @@
             [appDelegate.logger setupLogFile];
         } else if([command isEqualToString:@"changeColor"]) {
             
+            
             float red = [[chunks objectAtIndex:1] floatValue];
             float green = [[chunks objectAtIndex:2] floatValue];
             float blue = [[chunks objectAtIndex:3] floatValue];
@@ -77,7 +78,14 @@
             UIColor* color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
             [appDelegate.canvasViewController.brushColorViewController setCurrentColor:color];
             
-        } else if([command isEqualToString:@"draw"]) {
+        } else if([command isEqualToString:@"changeSize"]) {
+            
+            float size = [[chunks objectAtIndex:1] floatValue];
+            [appDelegate.canvasViewController.brushSizeViewController setBrushSize:size];
+            [appDelegate.canvasViewController updateBrush];
+
+        }  
+        else if([command isEqualToString:@"draw"]) {
                     
             [self processDrawingCommands:msg];
             

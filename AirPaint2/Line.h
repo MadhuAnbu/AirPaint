@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DynamicVertexArray.h"
 
-#define kBrushPixelStep		3
+#define kBrushPixelStep		1
 #define FRAME_HEIGHT 320
 
 typedef struct {

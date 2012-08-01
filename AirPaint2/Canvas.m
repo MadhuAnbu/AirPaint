@@ -290,7 +290,7 @@
  //   glGenBuffers(1, &vertexBuffer);
  //   glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 
-    glBufferData(GL_ARRAY_BUFFER,  [vertexArray getCurrentSizeLimit], (void *)[vertexArray myData], GL_STREAM_DRAW);
+  //  glBufferData(GL_ARRAY_BUFFER,  [vertexArray getCurrentSizeLimit], (void *)[vertexArray myData], GL_STREAM_DRAW);
 }
 
 
@@ -372,7 +372,7 @@
     */
     
     
-    /*
+    
     // does kind of work but gets slow
     glBufferSubData(GL_ARRAY_BUFFER, 
                     [line getFirstPositionInVertexArray] * sizeof(Vertex), 
@@ -380,7 +380,7 @@
                     [vertexArray getDataFromIndex:[line getFirstPositionInVertexArray]] );
     
     glDrawArrays(GL_POINTS,  0,  [vertexArray count]);
-    */
+    
    
     /*
     // does work, but get's slow
@@ -394,6 +394,7 @@
     glDrawArrays(GL_POINTS, [line getFirstPositionInVertexArray],  [line getLastPositionInVertexArray]+1-[line getFirstPositionInVertexArray]);
      */
     
+    /*
     glBufferSubData(GL_ARRAY_BUFFER,
                     0,
                     [vertexArray count]*sizeof(Vertex),
@@ -402,6 +403,14 @@
     
     glDrawArrays(GL_POINTS, [line getFirstPositionInVertexArray],  [line getLastPositionInVertexArray]+1-[line getFirstPositionInVertexArray]);
     
+    */
+    
+    /*
+    glBufferData(GL_ARRAY_BUFFER, [line count],
+                 [vertexArray getDataFromIndex:[line getFirstPositionInVertexArray]], GL_STATIC_DRAW);
+
+    glDrawArrays(GL_POINTS, 0, 2);
+    */
     
     [context presentRenderbuffer:GL_RENDERBUFFER];
     

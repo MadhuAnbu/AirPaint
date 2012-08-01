@@ -75,11 +75,10 @@
             UIColor* color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
             [appDelegate.canvasViewController.brushColorViewController setCurrentColor:color];
             
-        } else if([command isEqualToString:@"cursor"] || 
-                  [command isEqualToString:@"pinch_start"] ||
-                  [command isEqualToString:@"pinch"]) {
+        } else if([command isEqualToString:@"draw"]) {
             
-            [self processDrawingCommand:msg];
+            
+            [self processDrawingCommands:[msg substringFromIndex:5]];
             
         } else if([command isEqualToString:@"eraseCanvas"] ) {
             [appDelegate.canvasViewController.canvas eraseToIndex:-1 finished:YES];
@@ -92,6 +91,19 @@
 	[socket receiveWithTimeout:-1 tag:0];
     
 	return YES;
+}
+
+- (void) processDrawingCommands:(NSString *)msg
+{
+    msg = [msg substringFromIndex:5];
+    NSArray *lines = [msg componentsSeparatedByString:@"\n"];
+
+    for(NSString *line in lines) {
+        
+        [self processDrawingCommand:line];
+    
+    }
+    
 }
 
 - (void) processDrawingCommand:(NSString *) msg 

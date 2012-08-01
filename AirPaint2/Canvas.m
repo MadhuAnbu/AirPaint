@@ -192,6 +192,7 @@
     glUniformMatrix4fv(modelViewUniform, 1, 0, modelView.glMatrix);
     
 }
+
 /*
 - (GLuint)setupTexture:(NSString *)fileName {    
     // 1
@@ -259,7 +260,7 @@
     glVertexAttribPointer(thicknessSlot, 1, GL_FLOAT, GL_FALSE, 
                           sizeof(Vertex), (GLvoid*) (sizeof(float) * 7));
   
-    
+     
     CC3GLMatrix *projection = [CC3GLMatrix matrix];
     //float h = 4.0 * self.frame.size.height / self.frame.size.width;
    // [projection populateFromFrustumLeft:-2 andRight:2 andBottom:-h/2 andTop:h/2 andNear:-0.01 andFar:1.01];
@@ -281,6 +282,15 @@
     } 
     
     [context presentRenderbuffer:GL_RENDERBUFFER];
+}
+
+- (void) updateVBO {
+    NSLog(@"updateVBO called: size: %lu", [vertexArray getCurrentSizeLimit]);
+    
+ //   glGenBuffers(1, &vertexBuffer);
+ //   glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+
+    glBufferData(GL_ARRAY_BUFFER,  [vertexArray getCurrentSizeLimit], (void *)[vertexArray myData], GL_STREAM_DRAW);
 }
 
 
@@ -310,20 +320,15 @@
         [self setupFrameBuffer];     
         [self compileShaders];
         [self prepareRendering];
+        [self updateVBO];
     }
     
     return self;
 }
 
-- (void) addLine:(Line*) line 
-{
-    
-}
-
-
 - (void) addAndRenderLineWithStartPoint:(CGPoint) start endPoint:(CGPoint) end color:(Color) col lineWidth:(float) size {
         
-    // [self clear];
+   // [self clear];
     
     // add line
     Line *line = [[Line alloc] initWithStart:start endPoint:end color:col lineWidth:size];
@@ -331,18 +336,61 @@
     [self.lines addObject:line];
 
     // draw line
-  
-    /*glBufferData(GL_ARRAY_BUFFER,  [vertexArray getSize], [vertexArray data], GL_STREAM_DRAW);
+  /*
+    
+    glBufferData(GL_ARRAY_BUFFER,  [vertexArray getSize], [vertexArray data], GL_STREAM_DRAW);
     glDrawArrays(GL_POINTS, 0, [vertexArray count]);
      
-     glDrawArrays(GL_POINTS, 0, [vertexArray count]);
+  */
+    /*
+    
+    glBufferData(GL_ARRAY_BUFFER, [line count], 
+                 [vertexArray getDataFromIndex:[line getFirstPositionInVertexArray]], GL_STREAM_DRAW);
+    
+    glDrawArrays(GL_POINTS, 0, 1);
      */
+    
+  /*
+    
+    NSLog(@"firstPositionInVertexArray: %i, line count: %i, drawArrayCount; %i", [line getFirstPositionInVertexArray ], [line count], [vertexArray count]);
+
     
     glBufferData(GL_ARRAY_BUFFER,  sizeof(Vertex) * [line count], 
                  [vertexArray getDataFromIndex:[line getFirstPositionInVertexArray]], GL_STREAM_DRAW);
+*/
     
-    glDrawArrays(GL_POINTS, 0, [line count]);
-
+    /*
+    glBufferSubData(GL_ARRAY_BUFFER, 
+                    0, 
+                    [line count]*sizeof(Vertex),
+                    [vertexArray getDataFromIndex:[line getFirstPositionInVertexArray]] );
+    
+    
+    glDrawArrays(GL_POINTS,  0,  [line count]);
+    */
+    
+    
+    /*
+    // does kind of work but gets slow
+    glBufferSubData(GL_ARRAY_BUFFER, 
+                    [line getFirstPositionInVertexArray] * sizeof(Vertex), 
+                    [line count]*sizeof(Vertex),
+                    [vertexArray getDataFromIndex:[line getFirstPositionInVertexArray]] );
+    
+    glDrawArrays(GL_POINTS,  0,  [vertexArray count]);
+    */
+   
+    // does work, but get's slow
+   
+    
+    glBufferSubData(GL_ARRAY_BUFFER, 
+                    [line getFirstPositionInVertexArray] * sizeof(Vertex), 
+                    [line count]*sizeof(Vertex),
+                    [vertexArray getDataFromIndex:[line getFirstPositionInVertexArray]] );
+    
+    glDrawArrays(GL_POINTS, [line getFirstPositionInVertexArray],  [line getLastPositionInVertexArray]+1-[line getFirstPositionInVertexArray]);
+ 
+    
     [context presentRenderbuffer:GL_RENDERBUFFER];
     
     // move cursor to last point of line
@@ -352,10 +400,6 @@
 
 
 - (void) eraseToIndex:(int) index finished:(bool) finished {
-    
-    printf("canvasHolder - erase to Index: %i (canvasCount: %i)\n",
-           index , [self.lines count]);
-
     
     if([self.lines count] == 0) 
         return ;
@@ -386,7 +430,7 @@
         
         [vertexArray removeVerticesFromIndex:lastVertexIndexToRender];
         
-        glBufferData(GL_ARRAY_BUFFER,  [vertexArray getSize], [vertexArray data], GL_STREAM_DRAW);
+        glBufferData(GL_ARRAY_BUFFER,  [vertexArray getSize], [vertexArray myData], GL_STREAM_DRAW);
         glDrawArrays(GL_POINTS, 0, [vertexArray count]);
 
         [context presentRenderbuffer:GL_RENDERBUFFER];

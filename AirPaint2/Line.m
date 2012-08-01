@@ -29,7 +29,13 @@
     self.width = size;
     
     self.count = MAX(ceilf(sqrtf((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)) / kBrushPixelStep), 1);
-        
+    /*
+    if(self.count > 1) {
+       // printf("(%f,%f)-(%f,%f), count :%i\n", start.x, start.y, end.x, end.y, self.count);
+      //  printf ("#count: %i", self.count);
+
+    }
+*/
       return self;
 }
 
@@ -54,6 +60,7 @@
         vertex.Size = self.width;
         
         int pos = [array addVertex:vertex];
+       // printf ("#%i\n (size: %i)", pos, self.count);
         
         if(i==0) firstPositionInVertexArray = pos;
         if(i==(self.count-1)) lastPositionInVertexArray = pos;
@@ -92,9 +99,9 @@
     for (int i = firstPositionInVertexArray, c = 0; i <= lastPositionInVertexArray; i++, c++) {
         
         
-        [array data][i].Position[0] = (self.start.x + (self.end.x - self.start.x) * ((GLfloat)c / (GLfloat)self.count));
-        [array data][i].Position[1] = (self.start.y + (self.end.y - self.start.y) * ((GLfloat)c / (GLfloat)self.count));
-        [array data][i].Position[2] = 0;
+        [array myData][i].Position[0] = (self.start.x + (self.end.x - self.start.x) * ((GLfloat)c / (GLfloat)self.count));
+        [array myData][i].Position[1] = (self.start.y + (self.end.y - self.start.y) * ((GLfloat)c / (GLfloat)self.count));
+        [array myData][i].Position[2] = 0;
        
       
     }

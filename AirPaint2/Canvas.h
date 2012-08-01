@@ -22,7 +22,7 @@
 #define kLuminosity			1.0
 #define kSaturation			1.0
 
-#define VERTEX_ARRAY_INITIAL_SIZE 700
+#define VERTEX_ARRAY_INITIAL_SIZE 1500
 
 @class AppDelegate;
 
@@ -71,6 +71,7 @@
 - (void) eraseToIndex:(int) index finished:(bool) finished;
 - (void) eraseAndDisplay:(bool) display;
 - (UIImage *) getSnapshotImage;
+- (void) updateVBO;
 
 @end
 

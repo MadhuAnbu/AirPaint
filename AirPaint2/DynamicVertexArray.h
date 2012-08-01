@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define INCREASE_LIMIT_STEP 300
+#define INCREASE_LIMIT_STEP 1000
 
 typedef struct {
     float Position[3];
@@ -18,16 +18,17 @@ typedef struct {
 
 
 @interface DynamicVertexArray : NSObject {
-    int limit;
+    unsigned long limit;
 }
 
 @property int count;
-@property Vertex* data;
+@property Vertex* myData;
 
-- (id) initWithMomentaryLimit:(int) limit;
-- (int) addVertex: (Vertex) vertex;
-- (void) removeVerticesFromIndex:(int) index;
-- (int) getSize;
-- (Vertex*) getDataFromIndex:(unsigned long) index;
+- (id) initWithMomentaryLimit:(unsigned long) limit;
+- (unsigned long) addVertex: (Vertex) vertex;
+- (void) removeVerticesFromIndex:(unsigned long) index;
+- (unsigned long) getSize;
+- (void*) getDataFromIndex:(unsigned long) index;
+- (unsigned long) getCurrentSizeLimit;
 
 @end

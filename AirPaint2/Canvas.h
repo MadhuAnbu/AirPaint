@@ -60,7 +60,8 @@
     GLuint brushTexture;
     
     float currentScaleFactor;
-    
+ 
+    int sumSubDraw;
 }
 
 @property (atomic, retain) NSMutableArray *lines;

@@ -312,6 +312,8 @@
         
         self.lines = [[NSMutableArray alloc] init];
             
+        sumSubDraw = 0;
+        
         // setting up OpenGL
         [self setupLayer];        
         [self setupContext];    
@@ -388,8 +390,14 @@
                     [line count]*sizeof(Vertex),
                     [vertexArray getDataFromIndex:[line getFirstPositionInVertexArray]] );
     
+    
     glDrawArrays(GL_POINTS, [line getFirstPositionInVertexArray],  [line getLastPositionInVertexArray]+1-[line getFirstPositionInVertexArray]);
  
+    sumSubDraw += [line getLastPositionInVertexArray]+1-[line getFirstPositionInVertexArray];
+    
+    printf("sum-sub-draw: %i", sumSubDraw);
+    
+    printf("vertex count: %i", [vertexArray count]);
     
     [context presentRenderbuffer:GL_RENDERBUFFER];
     
